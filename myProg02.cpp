@@ -18,15 +18,25 @@ int main(int argc, char *argv[])
 	}
 	ifstream ifs;
 	ifs.open(argv[1]);
-	int result = 0;
-	string line;
+	int resultAnimals = 0;
+	int resultDuck = 0;
+	int resultNonDuck = 0;
+	string line = "";
 	while (getline(ifs, line))
 	{
 		if (line == "duck")
 		{
-			result++;
+			resultDuck++;
 		}
+		else
+		{
+			resultNonDuck++;
+		}
+		resultAnimals++;
 	}
-	cout << "There were " << result << " ducks in " << argv[1] << endl;
+	cout << "Report for " << argv[1] << ":" << endl;
+	cout << "   Animal count:    " << resultAnimals << endl;
+	cout << "   Duck count:      " << resultDuck << endl;
+	cout << "   Non duck count:  " << resultNonDuck << endl;
 	return 0;
 }
